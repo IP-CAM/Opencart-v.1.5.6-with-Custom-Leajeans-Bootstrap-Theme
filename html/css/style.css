@@ -1,0 +1,258 @@
+/* Template-specific stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+
+/* Account for fixed navbar */
+
+/* Account for fixed navbar */
+@font-face {
+	font-family: 'colors-of-autumn';
+	src: local('/'), url('../fonts/Colors-Of-Autumn.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background: #c9cbcc;
+}
+
+.head{background: transparent url('../img/bg-body.png') center top no-repeat;}
+.content{
+	background: #c9cbcc url('../img/bg-content-polos.jpg') center top no-repeat;
+}
+.content-inside{margin-top: 120px;}
+
+hr {border-top: solid 1px #97999a;margin-top: 10px;}
+
+.clear{clear: both; margin-bottom: 20px;}
+
+.item-data hr {border-top: dashed 1px #97999a;margin-top: 10px;}
+
+.navbar-inverse {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.nav > li > a{
+	font-family: "colors-of-autumn";
+	color: #fff;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus	 {
+  text-decoration: none;
+  background-color: transparent;
+  color: #e51c24;
+}
+
+.navbar {
+  margin-top: 20px;
+  margin-left: 150px;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus{
+	color: #e51c24;
+	background: transparent;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 620px;
+  width: 923px;
+  margin: auto;
+  margin-bottom: 0px;
+  position: relative;
+  padding-left: 42px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 620px;
+  background-color: transparent;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 24px;
+  left: 5px;
+}
+
+.frame-slider{
+	position: absolute;
+	top: 0px;
+	left: -10px;
+	margin: auto;
+}
+
+.carousel-control.left, .carousel-control.right {
+	background-image: none;
+	background-image: none;
+	background-repeat: repeat-x;
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 120px;
+  left: 5px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-caption h1{
+	font-family: "colors-of-autumn";
+	font-size: 28px;
+	font-weight: bold;
+	color: red;
+	text-shadow: -3px 3px 0px rgba(255, 255, 255, 1);
+	width: 180px;
+}
+
+.footer{
+	background: transparent url('../img/bg-footer.png') bottom center repeat-x;
+	height: 270px;
+	font-size: 80%;
+	text-align: center;
+}
+
+.address {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:  80px;
+}
+
+
+.maps iframe{
+	margin-top: 20px;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 2px 2px 24px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 24px rgba(0, 0, 0, 0.5);
+	clear: both;
+}
+
+.pageshop{
+	background: transparent;
+	border: none;
+	float: right;
+	margin-bottom: 0px;
+	margin-top: 40px;
+}
+
+.pageshop > li > a, .pageshop > li > span{
+	background: none;
+	border: none;
+	color: #000;
+}
+
+.kategori{
+	color: #042f6f;
+	font-weight: bold;
+	font-size: 12px;
+	margin-left: 130px;
+}
+
+.shoplist{
+	padding-left: 55px;
+	padding-right: 55px;
+}
+
+.shoplist > .thumbnail{
+	padding: 10px;
+	border-radius: 0;
+	-webkit-box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.item-desc h4, .detail-item h5{font-weight: bold; color: #000;}
+.block h5 {color: #fff;}
+.item-photo {text-align: center;}
+
+.item-data ul{margin: 0; padding: 0; list-style: none;}
+.item-data ul li{width: 32%; margin-bottom: 10px;float: left;}
+.item-data .invoice {text-align: right;}
+.block{
+	padding: 1px 10px;
+	background: grey;
+	margin-bottom: 10px;
+}
+
+.item-desc .item-price{
+	border: solid 2px #000;
+	font-weight: bolder;
+	color: #000;
+	padding: 2px 10px;
+}
+
+.pay-confirm a {color: #e51c24;}
+
+#gmap{
+height: 100%;
+left: 0;
+position: fixed !important; /* Acts in pretty much the same way as background-attachment: fixed for an image background. Has to be !important only if you're using the Google Maps API. */
+top: 0;
+width: 100%;
+z-index: 1; } /* Has to be at least one increment smaller in value than the container's z-index */
+
+#maps-container{
+margin: 0 auto;
+overflow: visible !important; /* Has to be !important only if you're using an on/off switch */
+position: relative;
+z-index: 2;
+background: transparent url('../img/bg-body.png') center top no-repeat;
+} /* Has to be at least one increment larger in value than the Google Maps iframe z-index */
+
+.store-addres{
+	margin: 200px auto;
+	padding: 50px;
+	background: #fff;
+	width: 70%;
+	-webkit-box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.store-addres ul li {
+	float: left;
+	width: 45%;
+	margin: 10px;
+}
+
+.imgstory01{margin-top: -100px;}
+.imgstory02{text-align: center; display: inherit;}
+
+.form{margin: auto;width: 70%;}
+.form input{border-radius: 0;}
+.newsletter {position: relative;background: transparent url('../img/bg-go.png') right top repeat-y;padding: 0 8px 0 0;}
+.newsletter form{
+	background: #fff;
+	padding: 10px 20px 10px 60px;
+	-webkit-box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+.search {background: transparent url('../img/search.png') bottom left no-repeat; padding-bottom: 6px}
+.form .search input {background: transparent; border: none; width: 300px;}
+.gosign {position: absolute; left: -50px;}
+
+.footer a, .footer h5{color: #fff;}
+.footer h5 {font-weight: bold;border-bottom: solid 1px #fff;}
+.store-addres ul, .footer ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.footer ul li{list-style: none;}

@@ -1,0 +1,102 @@
+<?php echo $header; ?>
+<div id="content" class="">
+   <h1 class="hidden"><?php echo $heading_title; ?></h1>  
+   <style type="text/css">
+      .gmap3{
+        margin: -100px auto -300px auto;
+        border: 1px dashed #C0C0C0;
+        position:absolute;
+		z-index:0;
+		width:100%;
+		height:1020px;
+		left:0px;
+		right:0px;
+		top:0px;
+		bottom:0px;
+      }
+	  #footer {
+		/*margin-bottom:-200px;**/
+		/*top:0px !important;*/
+		position:relative;
+		/*bottom: 0px;*/
+		z-index:6;
+		width:100%;
+	  }
+    </style>    
+    <script type="text/javascript">        
+      $(function(){      
+        $('#test1').gmap3({
+          map:{
+            options:{
+              center:[-6.4140133,106.829518],
+              zoom: 10
+            }
+          },
+          marker:{
+            values:[
+              {latLng:[6.2000, 106.8000], data:"Jakarta"},
+				<?php 
+				$i=0;
+				$c = count($all_storelocator_json); 
+				foreach ($all_storelocator_json as $json){ ?>
+				 <?php echo '{address:"'.$json['address'].'",id:"'.$json['id'].'",data:"<div><p>'.$json['title'].'<br/>'.$json['address'].'<br/>'.$json['phone'].'</p></div>"}'; ?><?php echo ($i == $c) ? ',' : ','; ?>
+				<?php
+				$i++;
+				}
+				?>
+            ],
+            options:{
+              draggable: false
+            },
+            events:{
+              mouseover: function(marker, event, context){
+                var map = $(this).gmap3("get"),
+                  infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                if (infowindow){
+                  infowindow.open(map, marker);
+                  infowindow.setContent(context.data);
+					$('#map-'+context.id).animate({marginTop:-5,opacity:0.8});
+                } else {
+                  $(this).gmap3({
+                    infowindow:{
+                      anchor:marker, 
+                      options:{content: context.data}
+                    }
+                  });
+                }
+              },
+              mouseout: function(marker, event, context){
+                var infowindow = $(this).gmap3({get:{name:"infowindow"}});
+                if (infowindow){
+					$('#map-'+context.id).animate({marginTop:8,opacity:1});
+                  infowindow.close();
+                }
+              }
+            }
+          }
+        });
+      });
+    </script>
+   <div id="test1" class="gmap3"></div>
+   
+   <div class="content-inside store-addres">
+	<ul class="list-unstyled">
+		<?php foreach ($all_storelocator as $storelocator) { ?>
+		<li>
+			<div class="row-fluid">
+				<a id="map-<?php echo $storelocator['id']; ?>" href="javascript:void(0);" class="pin-map pull-left"></a>
+				<div class="col-xs-11 pull-right">
+					<div><?php echo $storelocator['title']; ?> </div>
+					<div><?php echo $storelocator['address']; ?> </div>
+					<div><?php echo $storelocator['phone']; ?></div>
+				</div>
+			</div>
+		</li>
+		<?php } ?>	  
+	</ul>
+   </div> 
+	<div class="clear"></div>
+   <!--div class="pagination"><?php echo $pagination; ?></div-->
+</div>
+<?php echo $footer; ?>
+
